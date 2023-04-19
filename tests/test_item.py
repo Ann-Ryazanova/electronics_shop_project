@@ -10,7 +10,7 @@ def test_item():
     return item
 
 
-def test_Item_init(test_item):
+def test_item_init(test_item):
     assert test_item.name == "Компьютер"
     assert test_item.price == 30000
     assert test_item.quantity == 2
@@ -25,3 +25,19 @@ def test_apply_discount(test_item):
     test_item.apply_discount()
 
     assert test_item.price == 24000.0
+
+
+def test_setter(test_item):
+    test_item.name = "Apple"
+    assert test_item.name == "Apple"
+
+    try:
+        test_item.name = "Смартфон Apple"
+
+    except Exception as e:
+        assert e
+
+
+def test_string_to_number():
+    assert Item.string_to_number('5') == 5
+    assert Item.string_to_number('5.0') == 5
