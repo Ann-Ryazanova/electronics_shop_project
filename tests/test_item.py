@@ -41,3 +41,12 @@ def test_setter(test_item):
 def test_string_to_number():
     assert Item.string_to_number('5') == 5
     assert Item.string_to_number('5.0') == 5
+
+
+def test_repr(test_item):
+    assert repr(test_item) == "Item('Компьютер', 30000, 2)"
+
+
+def test_str(test_item):
+    assert str(test_item) == 'Компьютер'
+    # item = Item("Компьютер", 30000, 2)
