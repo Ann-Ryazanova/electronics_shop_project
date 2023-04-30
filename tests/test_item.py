@@ -2,12 +2,19 @@
 import pytest as pytest
 
 from src.item import Item
+from src.phone import Phone
 
 
 @pytest.fixture
 def test_item():
     item = Item("Компьютер", 30000, 2)
     return item
+
+
+@pytest.fixture
+def test_phone():
+    phone = Phone("Xiaomi", 30000, 5, 1)
+    return phone
 
 
 def test_item_init(test_item):
@@ -50,3 +57,9 @@ def test_repr(test_item):
 def test_str(test_item):
     assert str(test_item) == 'Компьютер'
     # item = Item("Компьютер", 30000, 2)
+
+
+def test_add(test_item, test_phone):
+    assert test_item.__add__(test_phone) == 7
+    phone1 = Phone("Samsung", 50000, 4, 2)
+    assert test_phone.__add__(phone1) == 9
